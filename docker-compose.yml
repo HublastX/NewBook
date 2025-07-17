@@ -1,0 +1,8 @@
+services: 
+  api-backend:
+    container_name: api-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
