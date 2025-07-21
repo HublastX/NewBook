@@ -13,3 +13,41 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  books     Book[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Book {
+  id          Int      @id @default(autoincrement())
+  title       String
+  author      String
+  genre       String
+  description String?
+  status      ReadingStatus @default(NOT_READ)
+  coverUrl    String
+  rating      Int?     // 1 a 5 estrelas
+  notes       String?
+  addedAt     DateTime @default(now())
+
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ReadingStatus {
+  NOT_READ
+  READING
+  READ
+}
