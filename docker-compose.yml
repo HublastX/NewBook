@@ -1,8 +1,32 @@
-services: 
-  api-backend:
-    container_name: api-backend
-    build:
+version: '3.8'
+
+services:
+  api:
+    build: 
       context: ./backend
-      dockerfile: Dockerfile
+    container_name: api-backend
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
     ports:
-      - "4000:4000"
+      - "4004:4004"
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
