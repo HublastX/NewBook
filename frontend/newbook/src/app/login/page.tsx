@@ -1,9 +1,9 @@
-export default function Login() {
-    return (
+export default function Login(){
+    return(
         <div>
-            <h1>tela de Login</h1>
+            <h1>
+                ola mundo
+            </h1>
         </div>
     )
 }
-
-

@@ -1,7 +1,8 @@
-import Login from "./login/page";
-
-export default function Home(){
-  return(
-    <Login></Login>
+export default function Home() {
+  return (
+    <div>
+      <p>pagina principal</p>
+    </div>
   )
+
 }
