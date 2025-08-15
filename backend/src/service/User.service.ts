@@ -1,4 +1,4 @@
-import { PrismaClient, User, Role } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -28,5 +28,9 @@ export class UserService {
     return await prisma.user.delete({
       where: { id }
     });
+  }
+
+  static async getByEmail(email: string) {
+    return await prisma.user.findUnique({ where: { email } });
   }
 }
