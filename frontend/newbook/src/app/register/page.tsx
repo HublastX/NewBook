@@ -1,6 +1,6 @@
 export default function Register(
 ) {
     return (
-        <h2>mundo register</h2>
+        <h2>ola mundo register</h2>
     )
 }
