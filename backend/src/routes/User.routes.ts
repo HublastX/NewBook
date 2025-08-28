@@ -1,13 +1,16 @@
 import { Router } from 'express';
 import { UserController } from '../controllers/User.Controller';
+import { authMiddleware } from '../middlewares/auth';
+import adminMiddleware from '../middlewares/adminMiddleware';
 
 const router = Router();
 
-router.get('/users', UserController.getAllUser);
-router.get('/users/:id', UserController.getByIdUser);
-router.post('/users', UserController.CreateUser);
-router.put('/users/:id', UserController.updateUser);
-router.delete('/users/:id', UserController.deleteUser);
-router.get('/users/login', UserController.login)
+// rota que só o admin pode acessar
+router.get('/users', authMiddleware, adminMiddleware, UserController.getAllUser);
+
+// rotas que qualquer usuário autenticado pode acessar
+router.get('/users/:id', authMiddleware, UserController.getByIdUser);
+router.put('/users/:id', authMiddleware, UserController.updateUser);
+router.delete('/users/:id', authMiddleware, UserController.deleteUser);
 
 export default router;
