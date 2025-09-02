@@ -3,17 +3,23 @@ import { UserService } from "../service/User.service";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import { registerSchema, loginSchema } from "../schemas/authSchema";
+
 dotenv.config();
+
 
 export class AuthController {
   // Registro de usuário
   static async register(req: Request, res: Response) {
+    // 1) validar input
+    const parsed = registerSchema.safeParse(req.body);
+    if (!parsed.success) {
+      // zod formata os erros por campo
+      return res.status(400).json({ errors: parsed.error.format() });
+    }
+    const { name, email, password, role } = parsed.data;
+    
     try {
-      const { name, email, password, role } = req.body;
-
-      if (!name || !email || !password) {
-        return res.status(400).json({ message: "Name, email and password are required" });
-      }
 
       const emailExists = await UserService.getByEmail(email);
       if (emailExists) {
@@ -32,9 +38,14 @@ export class AuthController {
 
   // Login
   static async login(req: Request, res: Response) {
-    const { email, password } = req.body;
-    if (!email || !password) return res.status(400).json({ message: "Email and password are required" });
+    // 1) validar input
+    const parsed = loginSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({ errors: parsed.error.format() });
+    }
+    const { email, password } = parsed.data;
 
+    
     try {
       const user = await UserService.getByEmail(email);
       if (!user) return res.status(401).json({ message: "Invalid credentials" });
