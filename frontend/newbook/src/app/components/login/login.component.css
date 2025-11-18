@@ -123,6 +123,7 @@
             font-weight: 500;
             color: #333;
             margin-bottom: 10px;
+            display: block;
         }
         
         .form-control {
@@ -131,6 +132,8 @@
             border-radius: 15px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .form-control:focus {
@@ -248,6 +251,57 @@
         .signup-link a:hover {
             color: #764ba2;
         }
+
+        .alert-error {
+          background-color: #f8d7da;
+          border: 1px solid #f5c6cb;
+          color: #721c24;
+          padding: 12px 15px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+        }
+
+        .alert-error i {
+          color: #dc3545;
+        }
+
+        .alert-error span {
+          flex: 1;
+        }
+
+        .close-btn {
+          background: none;
+          border: none;
+          color: #721c24;
+          cursor: pointer;
+          padding: 4px;
+          border-radius: 4px;
+          transition: background-color 0.2s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+        }
+
+        .close-btn:hover {
+          background-color: rgba(114, 28, 36, 0.1);
+        }
+
+        .close-btn i {
+          font-size: 0.8rem;
+        }
+
+/* Inputs com erro ficam vermelhos */
+     .form-control.ng-invalid.ng-touched {
+        border-color: #dc3545 !important;
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15) !important;
+       }
         
         @media (max-width: 768px) {
             .login-container {
