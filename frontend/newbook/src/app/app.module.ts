@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LayoutComponent } from './features/layout/layout.component';
+import { HeaderComponent } from './features/layout/header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LayoutComponent } from './features/layout/layout.component';
     LoginComponent,
     RegisterComponent,
     LayoutComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [provideClientHydration()],
