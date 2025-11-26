@@ -1,142 +1,114 @@
-<div class="register-container">
-  <div class="register-left">
-    <h2 class="register-title">Criar Conta</h2>
-    <p class="register-subtitle">Preencha os dados para começar sua jornada</p>
+<div class="container">
+  <div class="register-container">
+    <div class="register-left">
+      <h2 class="register-title">Criar Conta</h2>
+      <p class="register-subtitle">Preencha os dados para começar sua jornada</p>
 
-    <div class="alert-error" *ngIf="showErrorMessage">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span>Por favor, preencha todos os campos obrigatórios!</span>
-      <button class="close-btn" (click)="closeErrorMessage()">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-3">
-  <div class="row gy-4">
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input
-          type="text"
-          id="nome"
-          class="form-control"
-          placeholder="Seu nome"
-          formControlName="nome"
-          required
-        />
+      <div class="alert-error" *ngIf="showErrorMessage">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>Por favor, preencha todos os campos obrigatórios!</span>
+        <button class="close-btn" (click)="closeErrorMessage()">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
-    </div>
 
-    <div class="col-md-6">
-      <div class="mb-3">
-        <label for="sobrenome" class="form-label">Sobrenome</label>
-        <input
-          type="text"
-          id="sobrenome"
-          class="form-control"
-          placeholder="Seu sobrenome"
-          formControlName="sobrenome"
-          required
-        />
-      </div>
-    </div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-3">
+        <div class="row gy-4">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" id="nome" class="form-control" placeholder="Seu nome" formControlName="nome"
+                required />
+            </div>
+          </div>
 
-    <div class="col-12">
-      <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          placeholder="seu@email.com"
-          formControlName="email"
-          required
-        />
-      </div>
-    </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="sobrenome" class="form-label">Sobrenome</label>
+              <input type="text" id="sobrenome" class="form-control" placeholder="Seu sobrenome"
+                formControlName="sobrenome" required />
+            </div>
+          </div>
 
-    <div class="col-12 col-md-6">
-      <div class="mb-3">
-        <label for="telefone" class="form-label">Telefone</label>
-        <input
-          type="tel"
-          id="telefone"
-          class="form-control"
-          placeholder="(00) 00000-0000"
-          formControlName="telefone"
-          required
-        />
-      </div>
-    </div>
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" id="email" class="form-control" placeholder="seu@email.com" formControlName="email"
+                required />
+            </div>
+          </div>
 
-    <div class="col-12 col-md-6">
-      <div class="mb-3">
-        <label for="senha" class="form-label">Senha</label>
-        <input
-          type="password"
-          id="senha"
-          class="form-control"
-          placeholder="Crie uma senha forte"
-          formControlName="senha"
-          required
-        />
-      </div>
-    </div>
+          <div class="col-12 col-md-6">
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="tel" id="telefone" class="form-control" placeholder="(00) 00000-0000"
+                formControlName="telefone" required />
+            </div>
+          </div>
 
-    <div class="col-12">
-      <button type="submit" class="btn btn-register w-100">
-        Criar Conta
-      </button>
-    </div>
-  </div>
-</form>
+          <div class="col-12 col-md-6">
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input type="password" id="senha" class="form-control" placeholder="Crie uma senha forte"
+                formControlName="senha" required />
+            </div>
+          </div>
 
-    <div class="login-link">
-      Já tem uma conta? <a href="#">Faça login aqui</a>
-    </div>
-  </div>
-
-  <div class="register-right">
-    <div class="logo"><i class="fas fa-book-open"></i>NewBook</div>
-
-    <div class="benefits">
-      <div class="benefit-item">
-        <div class="benefit-icon">
-          <i class="fas fa-book"></i>
+          <div class="col-12">
+            <button type="submit" class="btn btn-register w-100">
+              Criar Conta
+            </button>
+          </div>
         </div>
-        <div class="benefit-text">
-          <h4>Milhares de Títulos</h4>
-          <p>Acesso a um catálogo completo com os melhores livros</p>
-        </div>
-      </div>
+      </form>
 
-      <div class="benefit-item">
-        <div class="benefit-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="benefit-text">
-          <h4>Recomendações Personalizadas</h4>
-          <p>Sugestões baseadas em suas preferências literárias</p>
-        </div>
+      <div class="login-link">
+        Já tem uma conta? <a href="#">Faça login aqui</a>
       </div>
+    </div>
 
-      <div class="benefit-item">
-        <div class="benefit-icon">
-          <i class="fas fa-tag"></i>
-        </div>
-        <div class="benefit-text">
-          <h4>Ofertas Exclusivas</h4>
-          <p>Descontos especiais para membros cadastrados</p>
-        </div>
-      </div>
+    <div class="register-right">
+      <div class="logo"><i class="fas fa-book-open"></i>NewBook</div>
 
-      <div class="benefit-item">
-        <div class="benefit-icon">
-          <i class="fas fa-shipping-fast"></i>
+      <div class="benefits">
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Milhares de Títulos</h4>
+            <p>Acesso a um catálogo completo com os melhores livros</p>
+          </div>
         </div>
-        <div class="benefit-text">
-          <h4>Entrega Rápida</h4>
-          <p>Receba seus livros com agilidade e segurança</p>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Recomendações Personalizadas</h4>
+            <p>Sugestões baseadas em suas preferências literárias</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-tag"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Ofertas Exclusivas</h4>
+            <p>Descontos especiais para membros cadastrados</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <div class="benefit-text">
+            <h4>Entrega Rápida</h4>
+            <p>Receba seus livros com agilidade e segurança</p>
+          </div>
         </div>
       </div>
     </div>
