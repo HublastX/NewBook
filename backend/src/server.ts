@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import userRoutes from "./routes/user.routes";
+
 
 dotenv.config();
 
@@ -14,8 +14,7 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ message: "Tudo ok" });
 });
 
-// Rotas de usuário
-app.use("/api", userRoutes);
+
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
