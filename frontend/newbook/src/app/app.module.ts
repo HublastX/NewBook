@@ -14,6 +14,7 @@ import { HeaderComponent } from './features/layout/header/header.component';
 import { SidebarComponent } from './features/layout/sidebar/sidebar.component';
 import { FooterComponent } from './features/layout/footer/footer.component';
 import { MainComponent } from './features/layout/main/main.component';
+import { CardBookComponent } from './components/card-book/card-book.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MainComponent } from './features/layout/main/main.component';
     SidebarComponent,
     FooterComponent,
     MainComponent,
+    CardBookComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [provideClientHydration()],
