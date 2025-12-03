@@ -1,0 +1,38 @@
+<div class="book-card">
+  <div class="book-cover">
+    <i class="fas fa-book"></i>
+    <span class="book-badge" *ngIf="status">{{ status }}</span>
+  </div>
+
+  <div class="book-content">
+    <span class="book-category">{{ category }}</span>
+
+    <h2 class="book-title">{{ title }}</h2>
+    <p class="book-author">{{ author }}</p>
+
+    <p class="book-synopsis">
+      {{ synopsis }}
+    </p>
+
+    <div class="book-rating">
+      <ng-container *ngFor="let star of starsArray">
+        <i class="fas fa-star star"></i>
+      </ng-container>
+    </div>
+
+    <div class="book-actions">
+      <button class="btn-action liked">
+        <i class="fas fa-heart"></i>
+        <span>{{ likes }}</span>
+      </button>
+
+      <button class="btn-action">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Tenho Interesse</span>
+      </button>
+    </div>
+
+    <p class="likes-count">{{ likes }} pessoas gostaram</p>
+  </div>
+</div>
+
