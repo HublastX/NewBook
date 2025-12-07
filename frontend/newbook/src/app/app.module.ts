@@ -9,11 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/auth/register/register.component';
-import { LayoutComponent } from './features/layout/layout.component';
-import { HeaderComponent } from './features/layout/header/header.component';
-import { SidebarComponent } from './features/layout/sidebar/sidebar.component';
-import { FooterComponent } from './features/layout/footer/footer.component';
-import { MainComponent } from './features/layout/main/main.component';
+import { LayoutComponent } from './features/pages/layout.component';
+import { HeaderComponent } from './features/pages/header/header.component';
+import { SidebarComponent } from './features/pages/sidebar/sidebar.component';
+import { FooterComponent } from './features/pages/footer/footer.component';
+import { MainComponent } from './features/pages/main/main.component';
 import { CardBookComponent } from './components/card-book/card-book.component';
 
 @NgModule({

@@ -1,17 +1,17 @@
 <div class="book-card">
   <div class="book-cover">
     <i class="fas fa-book"></i>
-    <span class="book-badge" *ngIf="status">{{ status }}</span>
+    <span class="book-badge" *ngIf="book.status">{{ book.status }}</span>
   </div>
 
   <div class="book-content">
-    <span class="book-category">{{ category }}</span>
+    <span class="book-category">{{ book.category }}</span>
 
-    <h2 class="book-title">{{ title }}</h2>
-    <p class="book-author">{{ author }}</p>
+    <h2 class="book-title">{{ book.title }}</h2>
+    <p class="book-author">{{ book.author }}</p>
 
     <p class="book-synopsis">
-      {{ synopsis }}
+      {{ book.synopsis }}
     </p>
 
     <div class="book-rating">
@@ -23,7 +23,7 @@
     <div class="book-actions">
       <button class="btn-action liked">
         <i class="fas fa-heart"></i>
-        <span>{{ likes }}</span>
+        <span>{{ book.likes }}</span>
       </button>
 
       <button class="btn-action">
@@ -31,8 +31,6 @@
         <span>Tenho Interesse</span>
       </button>
     </div>
-
-    <p class="likes-count">{{ likes }} pessoas gostaram</p>
   </div>
 </div>
 
