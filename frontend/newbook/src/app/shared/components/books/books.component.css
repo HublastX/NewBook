@@ -1,0 +1,7 @@
+.main-content {
+  margin-left: 280px;
+  margin-top: 70px;
+  padding: 2rem;
+  background: #f5f7fa;
+  min-height: calc(100vh - 70px);
+}
