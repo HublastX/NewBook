@@ -7,14 +7,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './features/auth/login/login.component';
-import { RegisterComponent } from './features/auth/register/register.component';
-import { LayoutComponent } from './features/pages/layout.component';
-import { HeaderComponent } from './features/pages/header/header.component';
-import { SidebarComponent } from './features/pages/sidebar/sidebar.component';
-import { FooterComponent } from './features/pages/footer/footer.component';
-import { MainComponent } from './features/pages/main/main.component';
-import { CardBookComponent } from './components/card-book/card-book.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { LayoutComponent } from './pages/initial/layout.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { MainComponent } from './shared/components/main/main.component';
+import { CardBookComponent } from './shared/components/card-book/card-book.component';
+import { BooksComponent } from './shared/components/books/books.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CardBookComponent } from './components/card-book/card-book.component';
     FooterComponent,
     MainComponent,
     CardBookComponent,
+    BooksComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [provideClientHydration()],
