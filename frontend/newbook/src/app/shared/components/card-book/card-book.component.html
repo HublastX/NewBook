@@ -1,36 +1,54 @@
-<div class="book-card">
-  <div class="book-cover">
-    <i class="fas fa-book"></i>
-    <span class="book-badge" *ngIf="book.status">{{ book.status }}</span>
+<div class="review-card">
+  <div class="review-header">
+    <div class="review-book-cover">
+      <i class="fas fa-book"></i>
+    </div>
+
+    <div class="review-book-info">
+      <h3 class="review-book-title">{{ book.bookTitle }}</h3>
+      <p class="review-book-author">{{ book.bookAuthor }}</p>
+
+      <div class="review-rating">
+        <div class="stars">
+          <i
+            class="fas fa-star star"
+            *ngFor="let _ of starsArray"
+          ></i>
+        </div>
+        <span class="rating-text">
+          {{ book.ratingText || (book.rating + '.0') }}
+        </span>
+      </div>
+    </div>
   </div>
 
-  <div class="book-content">
-    <span class="book-category">{{ book.category }}</span>
-
-    <h2 class="book-title">{{ book.title }}</h2>
-    <p class="book-author">{{ book.author }}</p>
-
-    <p class="book-synopsis">
-      {{ book.synopsis }}
-    </p>
-
-    <div class="book-rating">
-      <ng-container *ngFor="let star of starsArray">
-        <i class="fas fa-star star"></i>
-      </ng-container>
+  <div class="review-user">
+    <div class="user-avatar">
+      {{ book.userInitials }}
     </div>
 
-    <div class="book-actions">
-      <button class="btn-action liked">
-        <i class="fas fa-heart"></i>
-        <span>{{ book.likes }}</span>
-      </button>
-
-      <button class="btn-action">
-        <i class="fas fa-shopping-cart"></i>
-        <span>Tenho Interesse</span>
-      </button>
+    <div class="user-info">
+      <div class="user-name">{{ book.userName }}</div>
     </div>
+  </div>
+
+  <p class="review-content">
+    {{ book.content }}
+  </p>
+
+  <div class="review-tags">
+    <span class="review-tag">{{ book.category }}</span>
+  </div>
+
+  <div class="review-actions">
+    <button class="action-btn">
+      <i class="fas fa-thumbs-up"></i>
+      <span>{{ book.likes }} úteis</span>
+    </button>
+
+    <button class="action-btn">
+      <i class="fas fa-comment"></i>
+      <span>{{ book.comments }} comentários</span>
+    </button>
   </div>
 </div>
-

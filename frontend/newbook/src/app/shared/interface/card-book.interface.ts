@@ -1,9 +1,16 @@
 export interface CardBook {
-  title: string;
-  author: string;
+  bookTitle: string;
+  bookAuthor: string;
   category: string;
-  synopsis: string;
+  content: string;
+
+  rating: number;        // 0 a 5
+  ratingText?: string;   // ex: "5.0"
+
+  userName: string;
+  userInitials: string;
+
   likes: number;
-  stars: number;   // entre 0 e 5
-  status: string;  // ex: 'Disponível'
+  comments: number;
 }
+

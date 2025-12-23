@@ -10,7 +10,7 @@ export class CardBookComponent {
   @Input() book!: CardBook;
 
   get starsArray(): number[] {
-    const value = Math.min(Math.max(this.book.stars, 0), 5);
+    const value = Math.min(Math.max(this.book.rating, 0), 5);
     return Array(value).fill(0);
   }
 }

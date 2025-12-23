@@ -1,8 +1,4 @@
 <main class="main-content">
-  <div class="books-grid">
-    <app-card-book 
-      *ngFor="let book of bookExample" 
-      [book]="book">
-    </app-card-book>
-  </div>
+  <app-card-book *ngFor="let book of bookExample" [book]="book">
+  </app-card-book>
 </main>
