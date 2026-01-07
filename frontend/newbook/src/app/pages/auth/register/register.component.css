@@ -228,6 +228,24 @@
     font-size: 0.9rem;
 }
 
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.input-wrapper input{
+    padding-left: 58px;
+}
+
 .form-control:focus~.input-icon {
     color: #667eea;
 }

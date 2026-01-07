@@ -17,40 +17,55 @@
           <div class="col-md-6">
             <div class="mb-3">
               <label for="nome" class="form-label">Nome</label>
-              <input type="text" id="nome" class="form-control" placeholder="Seu nome" formControlName="nome"
-                required />
+              <div class="input-wrapper">
+                <input type="text" id="nome" class="form-control" placeholder="Seu nome" formControlName="nome" required />
+                <i class="fa fa-user"></i>
+              </div>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="mb-3">
               <label for="sobrenome" class="form-label">Sobrenome</label>
-              <input type="text" id="sobrenome" class="form-control" placeholder="Seu sobrenome"
+              <div class="input-wrapper">
+                <input type="text" id="sobrenome" class="form-control" placeholder="Seu sobrenome"
                 formControlName="sobrenome" required />
+                <i class="fa fa-user"></i>
+
+              </div>
             </div>
           </div>
 
           <div class="col-12">
             <div class="mb-3">
               <label for="email" class="form-label">E-mail</label>
-              <input type="email" id="email" class="form-control" placeholder="seu@email.com" formControlName="email"
+              <div class="input-wrapper">
+                <input type="email" id="email" class="form-control" placeholder="seu@email.com" formControlName="email"
                 required />
+                <i class="fas fa-envelope"></i>
+              </div>
             </div>
           </div>
 
           <div class="col-12 col-md-6">
             <div class="mb-3">
               <label for="telefone" class="form-label">Telefone</label>
-              <input type="tel" id="telefone" class="form-control" placeholder="(00) 00000-0000"
+              <div class="input-wrapper">
+                <input type="tel" id="telefone" class="form-control" placeholder="(00) 00000-0000"
                 formControlName="telefone" required />
+                <i class="fa-solid fa-phone"></i>
+              </div>
             </div>
           </div>
 
           <div class="col-12 col-md-6">
             <div class="mb-3">
               <label for="senha" class="form-label">Senha</label>
-              <input type="password" id="senha" class="form-control" placeholder="Crie uma senha forte"
+              <div class="input-wrapper">
+                <input type="password" id="senha" class="form-control" placeholder="Crie uma senha forte"
                 formControlName="senha" required />
+                <i class="fa-solid fa-eye-slash"></i>
+              </div>
             </div>
           </div>
 
