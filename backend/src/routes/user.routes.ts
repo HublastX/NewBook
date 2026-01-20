@@ -1,6 +1,6 @@
 // src/routes/user.routes.ts
 import { Router } from "express";
-import { listUsers, getUser, updateUser, deleteUser } from "../controllers/user.controller";
+import { listUsers, getUser, updateUser, deleteUser } from "../controllers/userController";
 import { requireAuth } from "../minddlewares/auth.middleware";
 
 const router = Router();
