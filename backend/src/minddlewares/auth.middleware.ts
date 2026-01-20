@@ -1,28 +1,23 @@
-// src/middlewares/auth.middleware.ts
+
+
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "dev-secret";
+const SECRET_KEY = process.env.JWT_SECRET as string;
 
-export function requireAuth(req: Request, res: Response, next: NextFunction) {
-  const authHeader = req.headers.authorization;
 
-  // Verifica se o header existe e começa com "Bearer"
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ error: "Token não fornecido" });
+export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  const token = req.headers["authorization"]?.split(" ")[1]; // Bearer token
+
+  if (!token) {
+    return res.status(401).json({ message: "Token não fornecido" });
   }
-
-  const token = authHeader.split(" ")[1];
 
   try {
-    // Valida o token
-    const decoded = jwt.verify(token, JWT_SECRET) as { userId: number };
-
-    // Guarda o userId dentro da requisição para usar nos controllers
-    (req as any).userId = decoded.userId;
-
-    next(); // segue para a rota
-  } catch (err) {
-    return res.status(401).json({ error: "Token inválido" });
+    const decoded = jwt.verify(token, SECRET_KEY);
+    (req as any).user = decoded; // adiciona info do usuário na requisição
+    next();
+  } catch (error) {
+    return res.status(401).json({ message: "Token inválido ou expirado" });
   }
-}
+};
