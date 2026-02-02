@@ -22,18 +22,16 @@ export const getBookByIdSchema = z.object({
 
 
 
+
+
 export const updateBookSchema = z.object({
-  params: z.object({
-    id: z.string().regex(/^\d+$/, "ID deve ser um número"), // valida string numérica
-  }),
-  body: z.object({
-    title: z.string().nonempty("Título é obrigatório").optional(),
-    author: z.string().nonempty("Autor é obrigatório").optional(),
-    category: z.string().optional(),
-    synopsis: z.string().optional(),
-    stars: z.number().int().min(0).max(5).optional(),
-  }),
+  title: z.string().nonempty("Título é obrigatório").optional(),
+  author: z.string().nonempty("Autor é obrigatório").optional(),
+  category: z.string().optional(),
+  synopsis: z.string().optional(),
+  stars: z.number().int().min(0).max(5).optional(),
 });
+
 
 
 
