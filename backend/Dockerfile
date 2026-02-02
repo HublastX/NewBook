@@ -23,4 +23,4 @@ COPY --from=build /app /app
 # Expõe a porta do seu servidor (altere conforme necessário)
 EXPOSE 4004
 
-CMD ["npm", "run", "dev"]
+CMD sh -c "npx prisma migrate deploy && npm run dev"
