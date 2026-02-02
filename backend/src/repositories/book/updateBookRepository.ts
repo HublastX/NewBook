@@ -1,19 +1,11 @@
 
 
 import { prisma } from "../../prisma";
+import Book from "../../types/book.types";
 
 export const bookUpdateRepository = {
-  async update(
-    id: number,
-    data: {
-      title?: string;
-      author?: string;
-      category?: string;
-      synopsis?: string;
-      stars?: number;
-    }
-  ) {
-    return prisma.book.update({
+  async update(id: number, data: Book) {
+    const book = await prisma.book.update({
       where: { id },
       data,
       select: {
@@ -26,6 +18,10 @@ export const bookUpdateRepository = {
         updatedAt: true,
       },
     });
+    return book;
   },
 };
+
+
+
 

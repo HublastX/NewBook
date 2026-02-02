@@ -4,19 +4,14 @@ import { updateBookSchema } from "../../schema/book/book.schema";
 
 export const update = async (req: Request, res: Response) => {
   try {
-    const parsed = updateBookSchema.parse({
-      params: req.params,
-      body: req.body,
-    });
+    const parsed = updateBookSchema.parse(req.body);
+    const { id } = req.params;
 
-    const bookId = Number(parsed.params.id); // seguro, porque Zod já validou
-    const data = parsed.body;
-
-    const book = await bookUpdateRepository.update(bookId, data);
+    const updateBook = await bookUpdateRepository.update(Number(id), parsed);
 
     return res.status(200).json({
       message: "Atualizado com sucesso",
-      book,
+      book: updateBook,
     });
   } catch (error: any) {
     if (error.code === "P2025") {
