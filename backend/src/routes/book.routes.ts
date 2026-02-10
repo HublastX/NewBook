@@ -3,7 +3,7 @@ import {controllerBook} from "../controllers/book/index"
 
 const router = Router();
 
-router.post('/book', controllerBook.createBook);
+router.post('/book', controllerBook.create);
 
 export{router};
 
