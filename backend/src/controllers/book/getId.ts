@@ -3,7 +3,7 @@ import { getBookIdRepository } from "../../repositories/book/getBookByIdReposito
 import { getBookByIdSchema } from "../../schema/book/book.schema";
 
 
-const getById = async (req: Request, res: Response) =>{
+export const getById = async (req: Request, res: Response) =>{
 try{
 
     const parsed = getBookByIdSchema.parse({parans: req.params})
