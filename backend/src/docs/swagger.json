@@ -1,0 +1,22 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API New Book",
+        "version": "1.0.0",
+        "description": "API new book"
+    },
+
+    "servers": [
+        {
+            "url": "http://localhost:4004",
+            "description": "servidor local"
+        }
+    ],
+    "paths": {
+        "$ref": "./paths/index.json"
+    },
+
+    "components": {
+        "$ref": "./schemas/book.schema.json#/components"
+    }
+}

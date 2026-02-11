@@ -1,0 +1,75 @@
+{
+  "createBook": {
+    "post": {
+      "summary": "Book registration",
+      "description": "This route is responsible for registering a new book.",
+      "tags": ["Book"],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../schemas/book.schema.json#/components/schemas/BookCreate"
+            },
+            "examples": {
+              "book": {
+                "title": "New Book",
+                "author": "João Almeida",
+                "category": "Terror",
+                "synopsis": "5 people in the middle of the forest being chased by a lion",
+                "stars": 5
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "201": {
+          "description": "Book created successfully",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Book criado com sucesso"
+                  },
+                  "book": {
+                    "$ref": "../../schemas/book.schema.json#/components/schemas/BookResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Validation error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../schemas/book.schema.json#/components/schemas/ValidationError"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal server error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Erro ao criar Book"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
