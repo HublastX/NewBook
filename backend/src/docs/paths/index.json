@@ -1,0 +1,5 @@
+{
+    "/book": {
+        "post":{ "$ref": "./book/create-book.json#/createBook/post"}
+    }
+}

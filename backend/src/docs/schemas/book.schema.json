@@ -1,0 +1,113 @@
+{
+  "components": {
+    "schemas": {
+      "BookCreate": {
+        "type": "object",
+        "required": ["title", "author", "category"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Book title",
+            "example": "Lord of the Rings"
+          },
+          "author": {
+            "type": "string",
+            "description": "Author's name",
+            "example": "João Gomes"
+          },
+          "category": {
+            "type": "string",
+            "description": "Book category or genre",
+            "example": "Fantasy"
+          },
+          "synopsis": {
+            "type": "string",
+            "description": "Synopsis or summary of the book",
+            "example": "An epic journey through Middle-earth."
+          },
+          "stars": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5,
+            "description": "Book rating (0 to 5 stars)",
+            "example": 4.5
+          }
+        }
+      },
+
+      "BookUpdate": {
+        "type": "object",
+        "description": "Fields allowed to update a book",
+        "properties": {
+          "title": { "type": "string", "example": "The Hobbit" },
+          "author": { "type": "string", "example": "J.R.R. Tolkien" },
+          "category": { "type": "string", "example": "Fantasy" },
+          "synopsis": { "type": "string", "example": "Bilbo's unexpected journey." },
+          "stars": { "type": "number", "minimum": 0, "maximum": 5, "example": 5 }
+        }
+      },
+
+      "BookResponse": {
+        "type": "object",
+        "description": "Data returned from a book",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the book",
+            "example": "clx9k2h1a0000abc123xyz"
+          },
+          "title": { "type": "string", "example": "Lord of the Rings" },
+          "author": { "type": "string", "example": "J.R.R. Tolkien" },
+          "category": { "type": "string", "example": "Fantasy" },
+          "synopsis": { "type": "string", "example": "An epic journey through Middle-earth." },
+          "stars": { "type": "number", "minimum": 0, "maximum": 5, "example": 4.5 },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-10T20:00:00.000Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-02-10T20:10:00.000Z"
+          }
+        }
+      },
+
+      "BookListResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BookResponse"
+        }
+      },
+
+      "ValidationError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Dados inválidos"
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of validation errors",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "example": ["title"]
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Título é obrigatório"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
