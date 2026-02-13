@@ -1,0 +1,74 @@
+{
+    "getBookById": {
+        "get": {
+            "summary": "Get Book By ID",
+            "description": "This route is responsible for returning a specific book by its ID",
+            "tags": ["Book"],
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "Book ID",
+                    "schema": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            ],
+            "responses": {
+                "200":{
+                    "description": "Book retrived successfully",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message":{
+                                        "type": "string",
+                                        "example": "Livro encontrado com sucesso"
+                                    },
+                                    "book": {
+                                        "$ref": "../../schemas/book.schema.json#/components/schemas/BookResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "Book not found",
+                    "content": {
+                         "application/json": {
+                              "schema": {
+                              "type": "object",
+                              "properties": {
+                                   "message": {
+                                        "type": "string",
+                                        "example": "Livro não encontrado"
+                                     }
+                                 }
+                              }
+                             }
+                         }
+                },
+                "500": {
+                 "description": "Internal server error",
+                 "content": {
+                  "application/json": {
+                      "schema": {
+                       "type": "object",
+                        "properties": {
+                        "message": {
+                         "type": "string",
+                         "example": "Erro ao buscar book"
+                       }
+                      }
+                      }
+                      }
+                  }
+                }
+            }
+        }
+    }
+}
