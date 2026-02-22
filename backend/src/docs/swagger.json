@@ -3,7 +3,8 @@
     "info": {
         "title": "API New Book",
         "version": "1.0.0",
-        "description": "API new book"
+        "description": "RESTful API developed in Node.js with TypeScript for book management. Features complete CRUD operations, data validation, and documentation via Swagger (OpenAPI 3.0). Suitable for studying backend architecture and best practices with Express."
+
     },
 
     "servers": [
