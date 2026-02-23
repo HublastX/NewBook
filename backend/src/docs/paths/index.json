@@ -4,6 +4,7 @@
     },
 
     "/book/{id}": {
-        "get": { "$ref": "./book/getById-book.json#/getBookById/get"}
+        "get": { "$ref": "./book/getById-book.json#/getBookById/get"},
+        "delete": { "$ref": "./book/delete-book.json#/deleteBook/delete"}
     }
 }
