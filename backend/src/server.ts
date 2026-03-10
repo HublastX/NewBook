@@ -1,7 +1,8 @@
 import express from "express";
 import { Request, Response } from "express";
 import dotenv from "dotenv";
-import { router } from "./routes/book.routes";
+import { routerBook } from "./routes/book.routes";
+import { routerUser } from "./routes/user.routes";
 import swaggerUi from "swagger-ui-express";
 import SwaggerParser from "@apidevtools/swagger-parser";
 import path from "path";
@@ -22,7 +23,8 @@ async function startServer() {
 
   app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-  app.use(router);
+  app.use(routerBook);
+  app.use(routerUser)
 
   app.get("/", (req: Request, res: Response) => {
     res.status(200).json({ message: "Tudo ok" });
