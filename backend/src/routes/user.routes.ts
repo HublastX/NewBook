@@ -1,14 +1,12 @@
-// src/routes/user.routes.ts
 import { Router } from "express";
-import { listUsers, getUser, updateUser, deleteUser } from "../controllers/userController";
-import { requireAuth } from "../minddlewares/auth.middleware";
+import { controllerUser } from "../controllers/user";
 
-const router = Router();
+const routerUser = Router();
 
-// Todas as rotas de User ficam protegidas
-router.get("/", requireAuth, listUsers);
-router.get("/:id", requireAuth, getUser);
-router.put("/:id", requireAuth, updateUser);
-router.delete("/:id", requireAuth, deleteUser);
+//routes book
+routerUser.post('/user', controllerUser.create);
 
-export default router;
+
+export{routerUser};
+
+
