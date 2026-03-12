@@ -1,0 +1,82 @@
+{
+    "components": {
+        "schemas": {
+            "UserCreate": {
+                "type": "object",
+                "required": ["name", "email", "password"],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Joao Almeida"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "joao@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "123456"
+                    },
+                    "role": {
+                        "type": "string",
+                        "enum": ["ADMIN", "USER"],
+                        "example": "USER"
+                    }
+                }
+            },
+            "UserResponse": {
+                "type": "object",
+                "properties":{
+                    "id": {
+                        "type": "string",
+                        "example": "clx123abc"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Joao Almeida"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "joao@gmail.com"
+                    },
+                    "role": {
+                        "type": "string",
+                        "example": "USER"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "example": "2026-03-10T20:00:00.000Z"
+                    }
+                }
+            },
+            "ValidationError": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Dados inválidos"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "path": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    },
+                                    "example": ["email"]
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "email inválido"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "createUser": {
+        "post": {
+            "summary": "User registration",
+            "description": "this router is responsible for gegistering a new user.",
+            "tags": ["User"],
+            "requestBody": {
+                "required": true,
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "../../schemas/user.schema.json#/components/schemas/UserCreate"
+                        },
+                        "examples": {
+                            "user": {
+                                "name": "Joao Almeida",
+                                "email": "joao@gmail.com",
+                                "password": "123456",
+                                "role": "USER"
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "User created successfully",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": "User criado com sucesso"
+                                    },
+                                    "user": {
+                                        "$ref": "../../schemas/user.schema.json#/components/schemas/UserResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description": "Validation error",
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "$ref": "../../schemas/user.schema.json#/components/schemas/ValidationError"
+                            }
+                        }
+                    }
+                },
+                "409":{
+                    "description": "Email already exists",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type":"string",
+                                        "example": "Email já está em uso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "500":{
+                    "description": "Internal server error",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type":"string",
+                                        "example": "Erro ao criar User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
