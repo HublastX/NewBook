@@ -17,5 +17,12 @@ export const createUserRepository = {
                 updatedAt: true,
             }
         })
-    }
+    },
+    async findByEmail(email: string) {
+    return prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+  },
 }
