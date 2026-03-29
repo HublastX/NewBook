@@ -10,5 +10,8 @@
 
     "/user": {
         "post": {"$ref": "./user/create-user.json#/createUser/post"}
+    },
+    "/user/{id}":{
+        "put": {"$ref": "./user/update-user.json#/updateUser/put"}
     }
 }

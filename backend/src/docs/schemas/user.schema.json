@@ -24,6 +24,30 @@
                     }
                 }
             },
+            "UserUpdate":{
+                "type": "object",
+                "properties":{
+                    "name":{
+                        "type": "string",
+                        "example": "Joao Atualizado"
+                    },
+                    "email":{
+                        "type":"string",
+                        "format": "email",
+                        "example": "joao@novoemail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "minLength": 6,
+                        "example": "12345678"
+                    },
+                    "role": {
+                        "type": "string",
+                        "enum": ["ADMIN", "USER"],
+                        "example": "ADMIN"
+                    }
+                }
+            },
             "UserResponse": {
                 "type": "object",
                 "properties":{

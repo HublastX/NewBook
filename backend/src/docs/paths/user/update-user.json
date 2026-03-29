@@ -1,0 +1,113 @@
+{
+    "updateUser": {
+        "put":{
+            "summary": "User update",
+            "description": "This route is responsible for updating user data.",
+            "tags": ["User"],
+            "parameters":[
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "User ID",
+                    "schema": {
+                        "type": "integer",
+                        "example": 1
+                    }
+                }
+            ],
+            "requestBody": {
+                "required":true,
+                "content": {
+                    "application/json":{
+                        "schema": {
+                            "$ref": "../../schemas/user.schema.json#/components/schemas/UserUpdate"
+                        },
+                        "examples":{
+                            "updateUser":{
+                                "summary": "example user update",
+                                "value": {
+                                    "name": "Joao Atualizado",
+                                    "email": "joao@novoemail.com",
+                                    "password": "12345678",
+                                    "role": "ADMIN"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200": {
+                    "description": "User updated successfully",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": "User atualizado com sucesso"
+                                    },
+                                    "user": {
+                                        "$ref": "../../schemas/user.schema.json#/components/schemas/UserResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description": "Validation or business error",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "oneOf": [
+                                    {
+                                        "$ref": "../../schemas/user.schema.json#/components/schemas/ValidationError"
+                                    },
+                                    {
+                                        "type": "string",
+                                        "example": "Email já esta em uso"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "404":{
+                    "description": "User not found",
+                    "content": {
+                        "application/json":{
+                            "schema": {
+                                "type":"object",
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": "User não encontrado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "500": {
+                    "description": "Internal server error",
+                    "content": {
+                        "application/json":{
+                            "schema":{
+                                "type": "object",
+                                "properties":{
+                                    "message":{
+                                        "type":"string",
+                                        "example": "Error ao atualizar User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
